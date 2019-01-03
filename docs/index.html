@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+		<title></title>
+		<style>
+			body {
+				height: 100vh;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: black;
+			}
+
+			.bubble-tea {
+				position: relative;
+				height: 500px;
+				width: 500px;
+			}
+
+			.shake {
+				animation: shake 1s infinite;
+			}
+
+			.bubble-tea  > * {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+			}
+
+			.straw {
+				animation: shake 10s infinite;
+			}
+
+			.bubble {
+			  animation: float 3s infinite ease-in-out;
+			}
+
+			#bubble1 {
+			  animation: float1 2s infinite ease-in-out;
+			}
+
+			#bubble2 {
+			  animation: float2 2s infinite ease-in-out;
+			}
+
+			#bubble3 {
+			  animation: float3 2s infinite ease-in-out;
+			}
+
+			@keyframes float {
+				50% {
+					transform: translateY(3px);
+				}
+			}
+
+			@keyframes float1 {
+				50% {
+					transform: translateY(10px);
+				}
+			}
+
+			@keyframes float2 {
+				50% {
+					transform: translateY(4px);
+				}
+			}
+
+			@keyframes float3 {
+				50% {
+					transform: translateY(8px);
+				}
+			}
+
+			@keyframes shake {
+				20% {
+					transform: rotate(0deg);
+				}
+				50% {
+					transform: rotate(5deg);
+				}
+				70% {
+					transform: rotate(-5deg);
+				}
+				90% {
+					transform: rotate(3deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+	<div id="bubble-tea" class="bubble-tea shake">
+		<img class="straw" src="./img/straw.png"></img>
+		<img class="cup" src="./img/cup.png"></img>
+		<img id="bubble1" class="bubble" src="./img/bubble1.png"></img>
+		<img id="bubble2" class="bubble" src="./img/bubble2.png"></img>
+		<img id="bubble3" class="bubble" src="./img/bubble3.png"></img>
+		<img class="bubble" src="./img/bubble4.png"></img>
+		<img class="bubble" src="./img/bubble5.png"></img>
+	</div>
+
+	<script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
+	<script>
+			const shakeEvent = new Shake({threshold: 15});
+			shakeEvent.start();
+
+			const bubbleTea = document.getElementById('bubble-tea');
+
+			window.addEventListener('shake', function(){
+				bubbleTea.className = "bubble-tea shake";
+				setTimeout(function() {
+					console.log(bubbleTea);
+					bubbleTea.className = "bubble-tea";
+				}, 1000);
+			}, false);
+
+			if(!("ondevicemotion" in window)){alert("Boo, shake is not supported");}
+	</script>
+	</body>
+</html>
