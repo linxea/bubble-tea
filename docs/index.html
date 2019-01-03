@@ -95,7 +95,7 @@
 		</style>
 	</head>
 	<body>
-	<div id="bubble-tea" class="bubble-tea shake">
+	<div id="bubble-tea" class="bubble-tea">
 		<img class="straw" src="./img/straw.png"></img>
 		<img class="cup" src="./img/cup.png"></img>
 		<img id="bubble1" class="bubble" src="./img/bubble1.png"></img>
@@ -117,7 +117,7 @@
 				setTimeout(function() {
 					console.log(bubbleTea);
 					bubbleTea.className = "bubble-tea";
-				}, 1000);
+				}, 1500);
 			}, false);
 
 			if(!("ondevicemotion" in window)){alert("Boo, shake is not supported");}
